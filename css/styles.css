@@ -1,0 +1,379 @@
+/*
+    COLOR PALETTE
+    -------------------------------------
+    Cream (header bg)       #F4EFE6
+    White (work bg)         #FFFFFF
+    Ink / Black (education) #111111
+    Red-Orange (accent)     #E8452C
+    Warm Gray (text)        #5C5650
+    Sand (borders)          #DDD5C8
+ 
+    FONTS
+    -------------------------------------
+    Headings: Archivo (400, 600, 900)
+    Body:     EB Garamond (400, 500, 400 italic)
+*/
+ 
+:root {
+    --cream: #F4EFE6;
+    --white: #FFFFFF;
+    --ink: #111111;
+    --accent: #E8452C;
+    --gray: #5C5650;
+    --sand: #DDD5C8;
+}
+ 
+* {
+    box-sizing: border-box;
+}
+ 
+html {
+    scroll-behavior: smooth;
+}
+ 
+/* Default fonts */
+body {
+    margin: 0;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--ink);
+    background-color: var(--cream);
+}
+ 
+h1, h2, h3 {
+    font-family: 'Archivo', Arial, sans-serif;
+    margin: 0;
+    line-height: 1.05;
+}
+ 
+/* Italic serif accent word (like "system" in the template) */
+h1 em,
+h2 em {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    color: var(--accent);
+}
+ 
+a {
+    color: inherit;
+}
+ 
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 24px;
+}
+ 
+.btn-accent {
+    background-color: var(--accent);
+    color: var(--white);
+}
+ 
+.btn-dark {
+    background-color: var(--ink);
+    color: var(--white);
+}
+ 
+.btn:hover {
+    opacity: 0.85;
+}
+ 
+/* ---------- Header / Intro ---------- */
+.intro {
+    background-color: var(--cream);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas:
+        "bar  bar"
+        "text photo";
+    column-gap: 40px;
+    padding: 0 6vw 80px;
+}
+ 
+.top-bar {
+    grid-area: bar;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0;
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--sand);
+}
+ 
+.brand {
+    font-family: 'Archivo', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+ 
+/* little red square before the name */
+.brand::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    background-color: var(--accent);
+}
+ 
+.nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+ 
+.nav-links a {
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gray);
+}
+ 
+.nav-links a:hover {
+    color: var(--accent);
+}
+ 
+.intro-text {
+    grid-area: text;
+    align-self: center;
+}
+ 
+.intro h1 {
+    font-size: clamp(56px, 8vw, 112px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+ 
+.intro h2 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 24px 0 18px;
+}
+ 
+.intro p {
+    color: var(--gray);
+    max-width: 540px;
+    margin: 0 0 32px;
+}
+ 
+/* Photo with red block behind it */
+.intro-photo {
+    grid-area: photo;
+    position: relative;
+    align-self: end;
+}
+ 
+.intro-photo::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    background-color: var(--accent);
+}
+ 
+.intro-photo img {
+    position: relative;
+    display: block;
+    width: 85%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+ 
+/* ---------- Sections (shared) ---------- */
+main section {
+    padding: 90px 6vw;
+}
+ 
+main h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 50px;
+}
+ 
+.section-number {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--accent);
+    vertical-align: super;
+    margin-right: 10px;
+}
+ 
+/* One job or school */
+.entry {
+    max-width: 900px;
+    padding: 36px 0;
+    border-top: 1px solid var(--sand);
+}
+ 
+.entry h3 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+ 
+.entry .company,
+.entry .date {
+    display: inline-block;
+    margin: 0 0 14px;
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+ 
+.entry .company {
+    color: var(--accent);
+}
+ 
+.entry .date::before {
+    content: "/";
+    margin: 0 12px;
+    color: var(--sand);
+}
+ 
+.entry p {
+    margin: 0 0 12px;
+}
+ 
+.entry ul {
+    margin: 0;
+    padding-left: 22px;
+}
+ 
+.entry li::marker {
+    color: var(--accent);
+}
+ 
+/* Work Experience */
+.work {
+    background-color: var(--white);
+}
+ 
+/* Education (dark section) */
+.education {
+    background-color: var(--ink);
+    color: var(--cream);
+}
+ 
+.education .entry {
+    border-top-color: #333;
+}
+ 
+.education .date::before {
+    color: #555;
+}
+ 
+/* ---------- Footer ---------- */
+.footer {
+    background-color: var(--accent);
+    color: var(--ink);
+    padding: 90px 6vw 30px;
+    overflow: hidden;
+}
+ 
+.footer h2 {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+ 
+.footer h2 em {
+    color: var(--white);
+}
+ 
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 40px 0 60px;
+}
+ 
+.contact-links a {
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 20px;
+    border: 2px solid var(--ink);
+}
+ 
+.contact-links a:hover {
+    background-color: var(--ink);
+    color: var(--white);
+}
+ 
+/* Huge cut-off name like "NORDEAUX" in the template */
+.big-name {
+    font-family: 'Archivo', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 22vw;
+    line-height: 0.8;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    margin: 0 0 30px;
+}
+ 
+.copyright {
+    font-size: 15px;
+    margin: 0;
+}
+ 
+/* ---------- Phone layout ---------- */
+@media (max-width: 800px) {
+    body {
+        font-size: 18px;
+    }
+ 
+    .intro {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bar"
+            "text"
+            "photo";
+        row-gap: 50px;
+    }
+ 
+    .top-bar {
+        flex-wrap: wrap;
+        margin-bottom: 0;
+    }
+ 
+    .nav-links {
+        order: 3;
+        width: 100%;
+        margin: 0;
+        gap: 24px;
+    }
+}
+ 
